@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NODUS · La app del motor de Madrid</title>
+<meta name="description" content="NODUS: la red social de coches y motos de Madrid. Quedadas, eventos, mapa, radar entre amigos, chapas y sellos.">
+<meta name="theme-color" content="#060B18">
+<meta property="og:title" content="NODUS · La app del motor de Madrid">
+<meta property="og:description" content="Quedadas, eventos del Jarama y salones, radar entre amigos y tu coche o moto en un mapa de neón.">
+<meta property="og:image" content="logo.png">
+<link rel="icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@400;600;800&display=swap">
+<style>
+  :root { --bg:#060B18; --card:#0f1830; --line:#1f2c4a; --neon:#00E5FF; --pink:#FF2BD6; --text:#EDEFF7; --dim:#9aaccc; }
+  * { box-sizing: border-box; }
+  body { margin:0; background: radial-gradient(ellipse at 50% -10%, #1a1240 0%, var(--bg) 60%) fixed; color:var(--text);
+         font-family: Inter, system-ui, sans-serif; line-height:1.5; }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 32px 20px 56px; }
+  header { display:flex; flex-direction:column; align-items:center; text-align:center; gap:10px; padding-top:12px; }
+  header img { width:132px; height:132px; filter: drop-shadow(0 0 22px rgba(0,229,255,.45)); }
+  h1 { font-family: Orbitron, sans-serif; font-weight:900; font-size: clamp(42px, 9vw, 72px); letter-spacing: 6px; margin: 0;
+       color:#fff; text-shadow: 0 0 18px rgba(0,229,255,.7), 0 0 42px rgba(255,43,214,.35); }
+  .tag { font-size: clamp(16px, 3.6vw, 20px); color: var(--dim); margin: 0; }
+  .tag b { color: var(--neon); }
+  .invite { margin: 26px auto 0; max-width: 520px; padding: 18px; border-radius: 18px; border: 1.5px solid var(--pink);
+            background: rgba(255,43,214,.08); text-align:center; display:none; }
+  .invite p { margin: 0 0 10px; }
+  .code { display:flex; gap:8px; justify-content:center; align-items:center; flex-wrap:wrap; }
+  .code span { font-family: Orbitron, sans-serif; font-size: 22px; letter-spacing: 2px; color: var(--pink); }
+  .cta { display:flex; flex-direction:column; align-items:center; gap:10px; margin: 30px 0 8px; }
+  .btn { display:inline-flex; align-items:center; gap:10px; padding: 16px 28px; border-radius: 16px; border: 0; cursor:pointer;
+         background: var(--neon); color:#031018; font: 800 18px Inter, sans-serif; text-decoration:none;
+         box-shadow: 0 0 26px rgba(0,229,255,.55); min-height: 56px; }
+  .btn:hover { filter: brightness(1.08); }
+  .btn.small { padding: 8px 14px; font-size: 14px; min-height: 40px; box-shadow:none; background: var(--pink); color:#fff; }
+  .ver { color: var(--dim); font-size: 13px; }
+  h2 { font-family: Orbitron, sans-serif; font-size: 20px; letter-spacing: 2px; margin: 44px 0 14px; color: var(--neon); }
+  .grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 16px; }
+  .card h3 { margin: 8px 0 4px; font-size: 16px; }
+  .card p { margin: 0; color: var(--dim); font-size: 14px; }
+  .card svg { width: 30px; height: 30px; }
+  ol { margin: 0; padding-left: 22px; color: var(--dim); }
+  ol li { margin: 6px 0; }
+  ol b { color: var(--text); }
+  .note { margin-top: 12px; font-size: 13px; color: var(--dim); }
+  footer { margin-top: 48px; text-align:center; color: var(--dim); font-size: 13px; }
+  footer a { color: var(--dim); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <img src="logo.png" alt="Logo de NODUS">
+    <h1>NODUS</h1>
+    <p class="tag">La app del motor de Madrid · <b>coches y motos</b></p>
+  </header>
+
+  <section class="invite" id="invite" aria-live="polite">
+    <p><b id="who">Te han invitado</b> a NODUS. Al abrir la app, usa este código:</p>
+    <div class="code"><span id="code"></span><button class="btn small" id="copy" type="button">Copiar código</button></div>
+    <p class="note" id="copied" style="display:none">Copiado. La app lo pondrá sola al abrirla.</p>
+  </section>
+
+  <div class="cta">
+    <a class="btn" id="dl" href="https://github.com/davidandeliano/nodus-apk/releases">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>
+      Descargar para Android
+    </a>
+    <span class="ver" id="ver">Gratis · Android</span>
+  </div>
+
+  <h2>QUÉ HAY DENTRO</h2>
+  <div class="grid">
+    <div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="#00E5FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
+      <h3>Mapa de quedadas</h3><p>Todas las quedadas de Madrid en un mapa de neón. Crea la tuya o únete con un toque.</p></div>
+    <div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="#FF2BD6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21V4h11l-2 4 2 4H4"/></svg>
+      <h3>Eventos del motor</h3><p>Jarama, salones de IFEMA, concentraciones y rallyes: aparecen solos cada día. Dale a «Voy».</p></div>
+    <div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="#00E5FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><path d="M12 12l6-4"/></svg>
+      <h3>Radar entre amigos</h3><p>Mira qué amigos están cerca con su coche o su moto, solo si los dos queréis.</p></div>
+    <div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="#FF2BD6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><circle cx="9" cy="12" r="2.5"/><path d="M14 10h4M14 14h3"/></svg>
+      <h3>Tu coche o tu moto</h3><p>Publica fotos con su ficha. La matrícula se tapa sola con la IA del móvil.</p></div>
+    <div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="#00E5FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="M8.5 14l-1.5 7 5-3 5 3-1.5-7"/></svg>
+      <h3>Chapas, sellos y karma</h3><p>Intercambia chapas en las quedadas, gana sellos y sube de nivel.</p></div>
+    <div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="#FF2BD6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M15 14.5c2.8 0 5 2 5 5"/></svg>
+      <h3>Tu CREW</h3><p>Monta tu grupo, con su sello, y salid juntos de ruta con el mapa en vivo.</p></div>
+  </div>
+
+  <h2>CÓMO INSTALARLA</h2>
+  <ol>
+    <li>Pulsa <b>Descargar para Android</b>.</li>
+    <li>Abre el archivo descargado (<b>NODUS.apk</b>) desde la notificación o desde Descargas.</li>
+    <li>Si Android lo pide, permite <b>instalar apps de esta fuente</b> y pulsa <b>Instalar</b>.</li>
+    <li>Abre NODUS. Si tienes código de invitación, la app lo pondrá sola.</li>
+  </ol>
+  <p class="note">Por ahora NODUS solo está para Android. Las actualizaciones llegan dentro de la propia app.</p>
+
+  <footer>
+    <p>NODUS · Madrid</p>
+  </footer>
+</div>
+<script>
+  // código de invitación en el enlace (?c=NODUS-XXXX&u=usuario)
+  (function () {
+    var q = new URLSearchParams(location.search);
+    var c = (q.get('c') || '').toUpperCase().replace(/[^A-Z0-9-]/g, '');
+    var u = (q.get('u') || '').replace(/[^a-zA-Z0-9_.]/g, '');
+    if (/^NODUS-[A-Z0-9][A-Z0-9-]{1,14}[A-Z0-9]$/.test(c)) {
+      document.getElementById('invite').style.display = 'block';
+      document.getElementById('code').textContent = c;
+      if (u) document.getElementById('who').textContent = '@' + u + ' te invita';
+      function copy() {
+        var done = function () { document.getElementById('copied').style.display = 'block'; };
+        if (navigator.clipboard) navigator.clipboard.writeText(c).then(done, function () {});
+      }
+      document.getElementById('copy').addEventListener('click', copy);
+      // al descargar también se copia, para que la app lo encuentre al abrirla
+      document.getElementById('dl').addEventListener('click', copy);
+    }
+  })();
+  // enlace directo a la última APK de NODUS
+  fetch('https://api.github.com/repos/davidandeliano/nodus-apk/releases?per_page=15')
+    .then(function (r) { return r.json(); })
+    .then(function (list) {
+      for (var i = 0; i < list.length; i++) {
+        var rel = list[i];
+        if (!/^v\d/.test(rel.tag_name) || rel.draft || rel.prerelease) continue;
+        for (var j = 0; j < rel.assets.length; j++) {
+          var a = rel.assets[j];
+          if (/^NODUS_.*\.apk$/.test(a.name)) {
+            document.getElementById('dl').href = a.browser_download_url;
+            var mb = (a.size / 1048576).toFixed(0);
+            document.getElementById('ver').textContent = 'Versión ' + rel.tag_name.slice(1) + ' · ' + mb + ' MB · Gratis';
+            return;
+          }
+        }
+      }
+    })
+    .catch(function () {});
+</script>
+</body>
+</html>
